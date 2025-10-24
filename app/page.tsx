@@ -9,7 +9,6 @@ import Testimonials from "@/components/testimonials"
 import Pricing from "@/components/pricing"
 import Booking from "@/components/booking"
 import Footer from "@/components/footer"
-import OfferPopup from "@/components/offer-popup"
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
       <Pricing />
       <Booking />
       <Footer />
-      <OfferPopup />
     </main>
   )
 }
