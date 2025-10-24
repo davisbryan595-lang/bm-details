@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import CountUp from "@/components/count-up"
+import Image from "next/image"
 
 export default function About() {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true })
@@ -37,11 +38,15 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl overflow-hidden h-96 flex items-center justify-center">
-              <div className="text-white text-center">
-                <p className="text-6xl poppins font-bold mb-2">BM</p>
-                <p className="text-xl">Premium Detailing</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden h-96">
+              <Image
+                src="https://images.pexels.com/photos/13371846/pexels-photo-13371846.jpeg"
+                alt="Premium car detailing interior"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
           </motion.div>
 
@@ -51,13 +56,13 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 mb-6">About BM Detailz</h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 dark:text-white mb-6">About BM Detailz</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               With over a decade of experience in automotive detailing, BM Detailz brings professional-grade service
               directly to your doorstep across San Diego. We're committed to delivering exceptional results using
               premium products and proven techniques.
             </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               Our mission is simple: bring the shine to you. We believe every vehicle deserves premium care, and we make
               it convenient by coming to you.
             </p>
@@ -70,13 +75,13 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="bg-white rounded-lg p-4 text-center shadow-md"
+                  className="bg-white dark:bg-gray-900/60 rounded-lg p-4 text-center shadow-md border border-transparent dark:border-gray-700"
                 >
                   <p className="text-3xl poppins font-bold text-blue-600 mb-2">
                     {inView && <CountUp end={stat.value} />}
                     {stat.label === "Mobile Service" && "+"}
                   </p>
-                  <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

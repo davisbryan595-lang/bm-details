@@ -10,17 +10,26 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative w-full h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Video/Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-600 via-blue-500 to-black opacity-90 z-0" />
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        loop
+        muted
+        playsInline
+        src="https://videos.pexels.com/video-files/6873495/6873495-hd_1280_720_25fps.mp4"
+      />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-600/60 via-blue-500/40 to-black/90 z-[1]" />
 
       {/* Animated Background Elements */}
       <motion.div
-        className="absolute top-20 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        className="absolute top-20 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 z-[2]"
         animate={{ y: [0, 50, 0] }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY }}
       />
       <motion.div
-        className="absolute bottom-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        className="absolute bottom-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 z-[2]"
         animate={{ y: [0, -50, 0] }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
       />

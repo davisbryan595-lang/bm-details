@@ -57,8 +57,8 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           ref={ref}
         >
-          <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600">Join hundreds of satisfied customers</p>
+          <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 dark:text-white mb-4">What Our Clients Say</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Join hundreds of satisfied customers</p>
         </motion.div>
 
         {/* Carousel */}
@@ -94,14 +94,14 @@ export default function Testimonials() {
                     </div>
 
                     {/* Text */}
-                    <p className="text-lg text-gray-700 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
 
                     {/* Author */}
                     <div className="flex items-center gap-4">
                       <div className="text-4xl">{testimonial.image}</div>
                       <div>
-                        <p className="poppins font-bold text-gray-900">{testimonial.name}</p>
-                        <p className="text-sm text-gray-600">Verified Customer</p>
+                        <p className="poppins font-bold text-gray-900 dark:text-white">{testimonial.name}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Verified Customer</p>
                       </div>
                     </div>
                   </motion.div>

@@ -51,7 +51,7 @@ export default function Navbar() {
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors font-medium"
               >
                 {item}
               </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                className="block text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-colors font-medium py-2"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
