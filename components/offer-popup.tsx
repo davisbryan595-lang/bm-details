@@ -7,27 +7,17 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 
-const STORAGE_KEY = "bm_offer_dismissed_until"
-
 export default function OfferPopup() {
   const [open, setOpen] = useState(false)
 
+  // Always show popup on every page load / refresh after a short delay
   useEffect(() => {
-    try {
-      const until = localStorage.getItem(STORAGE_KEY)
-      const now = Date.now()
-      if (!until || now > Number(until)) {
-        const t = setTimeout(() => setOpen(true), 2500)
-        return () => clearTimeout(t)
-      }
-    } catch {}
+    const t = setTimeout(() => setOpen(true), 2500)
+    return () => clearTimeout(t)
   }, [])
 
   const handleDismiss = () => {
-    try {
-      const sevenDays = 7 * 24 * 60 * 60 * 1000
-      localStorage.setItem(STORAGE_KEY, String(Date.now() + sevenDays))
-    } catch {}
+    // Only close for this session; do not persist so it appears on refresh
     setOpen(false)
   }
 
