@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import Preloader from "@/components/preloader"
 import OfferPopup from "@/components/offer-popup"
+import WhatsAppFab from "@/components/whatsapp-fab"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -67,6 +68,7 @@ export default function RootLayout({
           {children}
           <Preloader />
           <OfferPopup />
+          <WhatsAppFab />
         </ThemeProvider>
         <Analytics />
       </body>
