@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 
 export default function OfferPopup() {
   const [open, setOpen] = useState(false)
@@ -24,6 +24,7 @@ export default function OfferPopup() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-w-2xl p-0 overflow-hidden border-blue-600/30 glass-effect">
+        <DialogTitle className="sr-only">Limited Time Offer</DialogTitle>
         <div className="grid md:grid-cols-2">
           <div className="relative h-48 md:h-full">
             <Image
