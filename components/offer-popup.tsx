@@ -58,11 +58,11 @@ export default function OfferPopup() {
                     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })
                     handleDismiss()
                   }}
-                  className="btn-glow glow-pulse glow-blue"
+                  className="btn-glow btn-modal glow-pulse glow-blue"
                 >
-                  Claim Discount
+                  <span>Claim Discount</span>
                 </button>
-                <button onClick={handleDismiss} className="btn-ghost-glow">
+                <button onClick={handleDismiss} className="btn-ghost-glow btn-modal">
                   <span className="label">Not now</span>
                 </button>
               </div>
