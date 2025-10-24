@@ -2,6 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Poppins, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import Preloader from "@/components/preloader"
+import OfferPopup from "@/components/offer-popup"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -59,8 +62,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${poppins.variable} ${inter.variable} font-sans antialiased bg-white text-gray-900`}>
-        {children}
+      <body className={`${poppins.variable} ${inter.variable} font-sans antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+          <Preloader />
+          <OfferPopup />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

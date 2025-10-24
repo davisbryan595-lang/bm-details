@@ -4,18 +4,49 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 export default function Gallery() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   const galleryItems = [
-    { id: 1, title: "Exterior Polish", category: "Detailing" },
-    { id: 2, title: "Interior Deep Clean", category: "Cleaning" },
-    { id: 3, title: "Paint Correction", category: "Correction" },
-    { id: 4, title: "Ceramic Coating", category: "Protection" },
-    { id: 5, title: "Headlight Restoration", category: "Restoration" },
-    { id: 6, title: "Premium Finish", category: "Detailing" },
+    {
+      id: 1,
+      title: "Exterior Polish",
+      category: "Detailing",
+      src: "https://images.pexels.com/photos/14615262/pexels-photo-14615262.jpeg",
+    },
+    {
+      id: 2,
+      title: "Interior Deep Clean",
+      category: "Cleaning",
+      src: "https://images.pexels.com/photos/13371846/pexels-photo-13371846.jpeg",
+    },
+    {
+      id: 3,
+      title: "Paint Correction",
+      category: "Correction",
+      src: "https://images.pexels.com/photos/14542677/pexels-photo-14542677.jpeg",
+    },
+    {
+      id: 4,
+      title: "Ceramic Coating",
+      category: "Protection",
+      src: "https://images.pexels.com/photos/13805638/pexels-photo-13805638.jpeg",
+    },
+    {
+      id: 5,
+      title: "Headlight Restoration",
+      category: "Restoration",
+      src: "https://images.pexels.com/photos/2343499/pexels-photo-2343499.jpeg",
+    },
+    {
+      id: 6,
+      title: "Premium Finish",
+      category: "Detailing",
+      src: "https://images.pexels.com/photos/16376825/pexels-photo-16376825.jpeg",
+    },
   ]
 
   return (
@@ -48,13 +79,7 @@ export default function Gallery() {
               className="group relative overflow-hidden rounded-xl cursor-pointer h-64"
               onClick={() => setSelectedIndex(index)}
             >
-              {/* Placeholder Image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <p className="text-2xl poppins font-bold">{item.title}</p>
-                  <p className="text-sm text-blue-200 mt-2">{item.category}</p>
-                </div>
-              </div>
+              <Image src={item.src} alt={item.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
 
               {/* Overlay */}
               <motion.div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -81,17 +106,15 @@ export default function Gallery() {
           </div>
 
           {/* Preview Area */}
-          <div className="bg-gradient-to-br from-blue-600 to-blue-900 rounded-lg h-96 flex items-center justify-center mb-6 relative overflow-hidden">
-            <motion.div
+          <div className="rounded-lg h-96 mb-6 relative overflow-hidden">
+            <Image
               key={selectedIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="text-center text-white"
-            >
-              <p className="text-4xl poppins font-bold mb-2">{galleryItems[selectedIndex].title}</p>
-              <p className="text-blue-200">{galleryItems[selectedIndex].category}</p>
-            </motion.div>
+              src={galleryItems[selectedIndex].src}
+              alt={galleryItems[selectedIndex].title}
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
           </div>
 
           {/* Navigation */}

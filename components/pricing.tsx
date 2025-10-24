@@ -45,7 +45,7 @@ export default function Pricing() {
   ]
 
   return (
-    <section id="pricing" className="py-20 px-4 bg-white">
+    <section id="pricing" className="py-20 px-4 bg-white dark:bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -54,8 +54,8 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           ref={ref}
         >
-          <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 mb-4">Pricing Plans</h2>
-          <p className="text-xl text-gray-600">Transparent pricing for every budget</p>
+          <h2 className="text-4xl md:text-5xl poppins font-bold text-gray-900 dark:text-white mb-4">Pricing Plans</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">Transparent pricing for every budget</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -68,7 +68,7 @@ export default function Pricing() {
               className={`relative rounded-2xl p-8 transition-all duration-300 ${
                 plan.recommended
                   ? "bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-2xl scale-105 glow-pulse"
-                  : "bg-gray-50 border-2 border-gray-200 text-gray-900 hover:border-blue-600"
+                  : "bg-gray-50 dark:bg-gray-900/60 border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:border-blue-600"
               }`}
             >
               {/* Recommended Badge */}
@@ -83,14 +83,14 @@ export default function Pricing() {
               )}
 
               <h3 className="text-2xl poppins font-bold mb-2">{plan.name}</h3>
-              <p className={`text-sm mb-6 ${plan.recommended ? "text-blue-100" : "text-gray-600"}`}>
+              <p className={`text-sm mb-6 ${plan.recommended ? "text-blue-100" : "text-gray-600 dark:text-gray-300"}`}>
                 {plan.description}
               </p>
 
               {/* Price */}
               <div className="mb-8">
                 <span className="text-5xl poppins font-bold">${plan.price}</span>
-                <span className={plan.recommended ? "text-blue-100" : "text-gray-600"}>/service</span>
+                <span className={plan.recommended ? "text-blue-100" : "text-gray-600 dark:text-gray-300"}>/service</span>
               </div>
 
               {/* Features */}
